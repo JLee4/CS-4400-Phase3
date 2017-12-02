@@ -32,13 +32,6 @@ table.tableSection tr {
     display: table;
     text-align: left;
 }
-table.tableSection th, table.tableSection td {
-    width: 33%;
-}
-table.tableSection thead {
-    padding-right:18px;   /* 18px is approx. value of width of scroll bar */
-    width: calc(100% - 18px);
-}
 table, th, td {
-    border: 1px solid blue;
+    border: 1px solid gray;
 }
