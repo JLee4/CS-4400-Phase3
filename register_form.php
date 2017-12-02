@@ -5,26 +5,65 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <script type="text/javascript">
-    function register() {
+    function registerFunc() {
+        if (!document.getElementById("username").value || !document.getElementById("password").value
+            || !document.getElementById("email").value || !document.getElementById("password_confirm").value) {
+            alert("Field(s) are empty!");
+            return;
+        }
+        if (document.getElementById("password").value.length < 8) {
+            alert("Password must be at least 8 characters in length");
+            return;
+        }
+        if (document.getElementById("password").value !== document.getElementById("password_confirm").value) {
+            alert("Passwords do not match");
+            return;
+        }        if (!document.getElementById("old_breeze_radio").checked && !document.getElementById("new_breeze_radio").checked) {
+            alert("Please choose a BreezeCard option.");
+            return;
+        }
+        if (!document.getElementById("old_breeze_radio").checked || !document.getElementById("card_num").value) {
+            alert("Please enter an existing BreezeCard");
+            return;
+        }
         document.form.action="register.php";
         document.form.submit();
     }
 </script>
 <body>
 <div id="window">
+    <h1>
+       Registration
+    </h1>
     <form name="form" method="POST">
         <p>
-            <label>Register</label>
+            <label>Username</label>
             <input type="text" id="username" name="username">
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="email" id="email" name="email">
         </p>
         <p>
             <label>Password</label>
             <input type="password" id="password" name="password">
         </p>
         <p>
-            <input type="button" id="register" value="Register" onclick="register()">
+            <label>Confirm Password</label>
+            <input type="password" id="password_confirm" name="password_confirm">
         </p>
-
+        <div>
+            <h4>Breeze Card</h4>
+            <input type="radio" name="breeze_radio" id="old_breeze_radio" value="old"> Use my existing Breezecard<br>
+            <p>
+                <label>Existing BreezeCard Number</label>
+                <input type="text" id="card_num" name="card_num">
+            </p>
+            <input type="radio" name="breeze_radio" id="new_breeze_radio" value="new"> Get a new BreezeCard<br>
+        </div>
+        <p>
+            <input type="button" id="register" value="Register" onclick="registerFunc()">
+        </p>
 </div>
 </body>
 </html>
