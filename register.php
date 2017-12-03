@@ -10,14 +10,10 @@ $username = trim($username);
 $user_result = mysqli_query($connection, "INSERT INTO User (Username, Password) VALUES ('$username', '$password')") or die("DB error");
 $passenger_result = mysqli_query($connection, "INSERT INTO Passenger (Username, Email) VALUES('$username', '$email')") or die("DB error");
 $breezecard_result = mysqli_query($connection, "INSERT INTO Breezecard (BreezecardNum, Value, BelongsTo) VALUES('$card_num', '0.00', '$username')") or die("DB error");
-$result = mysqli_fetch_assoc($result);
 
-if (count($result) > 1 || count($result) < 1) {
+if (!$user_result || !$passenger_result || !$breezecard_result) {
+    echo "Could not insert into DB";
     header("Location: register_form.php");
-    exit();
-}
-if (!password_verify($password, $result['Password'])) {
-    header("Location: login_form.php");
     exit();
 }
 
