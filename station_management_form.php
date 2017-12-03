@@ -16,19 +16,55 @@
 
         th, td {
             text-align: left;
-            padding: 16px;
+            padding: 10px;
         }
 
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+
+        button {
+            background-color: #a0a0a0;
+            border: 1px solid black;
+            color: black;
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 16px;
+            font-family: "Times New Roman";
+        }
     </style>
 </head>
 
 <script type="text/javascript">
+    function highlight() {
+        var table = document.getElementById('dataTable');
+        var cells = table.getElementsByTagName('td');
+
+        for (var i = 0; i < cells.length; i++) {
+            // Take each cell
+            var cell = cells[i];
+            // do something on onclick event for cell
+            cell.onclick = function () {
+                // Get the row id where the cell exists
+                var rowId = this.parentNode.rowIndex;
+
+                var rowsNotSelected = table.getElementsByTagName('tr');
+                for (var row = 0; row < rowsNotSelected.length; row++) {
+                    rowsNotSelected[row].style.backgroundColor = "";
+                    rowsNotSelected[row].classList.remove('selected');
+                }
+
+                var rowSelected = table.getElementsByTagName('tr')[rowId];
+                rowSelected.style.backgroundColor = "lightblue";
+                rowSelected.className += " selected";
+            }
+        }
+
+    }
+
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("myTable");
+        table = document.getElementById("dataTable");
         switching = true;
         //Set the sorting direction to ascending:
         dir = "asc";
@@ -83,10 +119,10 @@
 </script>
 
 <body>
-<p><strong>Station Listing</strong></p>
+<p style="font-size: 20px" align="center">STATION LISTING</p>
 
-<table id="myTable">
-    <tr>
+<table id="dataTable" align="center">
+    <tr bgcolor="#808080">
         <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
         <th onclick="sortTable(0)">Station Name</th>
         <th onclick="sortTable(1)">Stop ID</th>
@@ -95,7 +131,7 @@
         <th onclick="sortTable(4)">Station Type</th>
         <th onclick="sortTable(5)">Nearest Intersection</th>
     </tr>
-    <tr>
+    <tr onmousemove="highlight()">
         <td>Asshole</td>
         <td>N1</td>
         <td>2.00</td>
@@ -103,7 +139,7 @@
         <td>Train</td>
         <td>null</td>
     </tr>
-    <tr>
+    <tr onmousemove="highlight()">
         <td>Bitch</td>
         <td>N2</td>
         <td>2.50</td>
@@ -111,7 +147,7 @@
         <td>Train</td>
         <td>null</td>
     </tr>
-    <tr>
+    <tr onmousemove="highlight()">
         <td>Cunt</td>
         <td>N3</td>
         <td>2.50</td>
@@ -119,7 +155,7 @@
         <td>Bus</td>
         <td>Dick and Dickless</td>
     </tr>
-    <tr>
+    <tr onmousemove="highlight()">
         <td>Dick</td>
         <td>N4</td>
         <td>1.50</td>
@@ -127,7 +163,7 @@
         <td>Bus</td>
         <td>Butt and Butthead</td>
     </tr>
-    <tr>
+    <tr onmousemove="highlight()">
         <td>Eggplant</td>
         <td>N5</td>
         <td>5.00</td>
@@ -137,8 +173,15 @@
     </tr>
 </table>
 
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+<p></p>
+<div align="center">
+
+    <button type="button1" onclick="createNewStation()" >Create New Station</button>
+</div>
+<p></p>
+<div align="center">
+    <button type="button2"  onclick="viewStation()">View Station</button>
+</div>
 
 </body>
 </html>
