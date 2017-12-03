@@ -27,9 +27,6 @@
 
 <body>
 
-<button type="button" onclick="alert('Update')">Assign Selected Card to New Owner</button>
-<button type="button" onclick="alert('Reset')">Assign Selected Card to Previous Owner</button>
-
 <table id="myTable">
     <tr>
         <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
@@ -70,6 +67,17 @@
     </tr>
 </table>
 
+<p>
+    <button type="button" onclick="alert('Update')">Assign Selected Card to New Owner</button>
+</p>
+
+<p>
+    <button type="button" onclick="alert('Reset')">Assign Selected Card to Previous Owner</button>
+</p>
+
+<p>
+    <label>Assigning the card to an owner will unlock all accounts conflicted on the same Breeze Card.</label>
+</p>
 
 </body>
 </html>
