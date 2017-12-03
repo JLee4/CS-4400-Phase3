@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Station Detail - North Springs</title>
+    <title>View Station</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
         table {
@@ -26,26 +27,31 @@
 </head>
 
 <body>
+<p style="font-size: 20px" align="center">STATION DETAIL - XXX</p>
+
+<div id="window">
+    <p><strong>North Springs</strong> (Stop N11)</p>
 
 
-<p><strong>North Springs</strong></p>
+    <p>
+        <label>Fare</label>
+        <input type="text" id="fare">
+        <button type="button" onclick="alert('Update')">Update Fare</button>
 
-<p>
-    <label>Fare</label>
-    <input type="password" id="password" name="password">
-    <button type="button" onclick="alert('Update')">Update Fare</button>
+    </p>
+    <p>
+        <label>Nearest Intersection</label>
+        <input type="text" id="nearest">
+    </p>
+    <br>
+    <p>
+        <input type="checkbox">Open Station<br>
+    </p>
 
-</p>
-<p>
-    <label>Nearest Intersection</label>
-</p>
-<p>
-    <input type="checkbox">Open Station<br>
-</p>
-
-<p>
-    <label> When checked, passengers can enter at this station.</label>
-</p>
+    <p>
+        <label style="font-size: 12px;"> When checked, passengers can enter at this station.</label>
+    </p>
+</div>
 
 </body>
 </html>
