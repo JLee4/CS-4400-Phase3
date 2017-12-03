@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Passenger Flow Report</title>
+    <title>Manage Breeze Cards</title>
 
     <style>
         table {
@@ -9,13 +9,16 @@
             width: 50%;
             border: 1px solid #ddd;
         }
+
         th {
             cursor: pointer;
         }
+
         th, td {
             text-align: left;
             padding: 16px;
         }
+
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
