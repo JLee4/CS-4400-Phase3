@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Administrator</title>
+    <title>Administrator Functionality</title>
 
     <style>
         table {
@@ -22,16 +22,41 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+
+        button {
+            background-color: #a0a0a0;
+            border: 1px solid black;
+            color: black;
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 16px;
+            font-family: "Times New Roman";
+        }
     </style>
 </head>
 
 <body>
+<p style="font-size: 20px" align="center">ADMINISTRATOR</p>
 
-<button type="button" onclick="alert('Update')">Station Management</button>
-<button type="button" onclick="alert('Reset')">Suspended Cards</button>
-<button type="button" onclick="alert('Update')">Breeze Card Management</button>
-<button type="button" onclick="alert('Reset')">Passenger Flow Report</button>
-<button type="button" onclick="alert('Update')">Log Out</button>
+<div align="center">
+    <button type="button" onclick="alert('Update')">Station Management</button>
+</div>
+<p></p>
+<div align="center">
+    <button type="button" onclick="alert('Reset')">Suspended Cards</button>
+</div>
+<p></p>
+<div align="center">
+    <button type="button" onclick="alert('Update')">Breeze Card Management</button>
+</div>
+<p></p>
+<div align="center">
+    <button type="button" onclick="alert('Reset')">Passenger Flow Report</button>
+</div>
+<p style="font-size: 50px"></p>
+<div align="center">
+    <button type="button" onclick="alert('Update')">Log Out</button>
+</div>
 
 </body>
 </html>
