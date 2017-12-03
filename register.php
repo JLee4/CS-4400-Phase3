@@ -17,7 +17,7 @@ if (!$user_result || !$passenger_result || !$breezecard_result) {
     exit();
 }
 
-$_SESSION["Username"] = $username;
+$_SESSION['Username'] = $username;
 header("Location: passenger_menu.php");
 exit();
 ?>
