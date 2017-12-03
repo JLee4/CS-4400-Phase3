@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Administrator Functionality</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
         table {
@@ -38,24 +39,26 @@
 <body>
 <p style="font-size: 20px" align="center">ADMINISTRATOR</p>
 
-<div align="center">
-    <button type="button" onclick="alert('Update')">Station Management</button>
-</div>
-<p></p>
-<div align="center">
-    <button type="button" onclick="alert('Reset')">Suspended Cards</button>
-</div>
-<p></p>
-<div align="center">
-    <button type="button" onclick="alert('Update')">Breeze Card Management</button>
-</div>
-<p></p>
-<div align="center">
-    <button type="button" onclick="alert('Reset')">Passenger Flow Report</button>
-</div>
-<p style="font-size: 50px"></p>
-<div align="center">
-    <button type="button" onclick="alert('Update')">Log Out</button>
+<div id="window">
+    <div align="center">
+        <button type="button" onclick="alert('Update')">Station Management</button>
+    </div>
+    <p></p>
+    <div align="center">
+        <button type="button" onclick="alert('Reset')">Suspended Cards</button>
+    </div>
+    <p></p>
+    <div align="center">
+        <button type="button" onclick="alert('Update')">Breeze Card Management</button>
+    </div>
+    <p></p>
+    <div align="center">
+        <button type="button" onclick="alert('Reset')">Passenger Flow Report</button>
+    </div>
+    <p style="font-size: 50px"></p>
+    <div align="center">
+        <button type="button" onclick="alert('Update')">Log Out</button>
+    </div>
 </div>
 
 </body>
