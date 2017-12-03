@@ -45,13 +45,13 @@ include 'db_connection.php';
             if (this.responseText !== '') {
                 //alert(this.responseText);
                 alert("Username or email already taken.")
-            } else {
-                document.form.action="register.php";
-                document.form.submit();
+                document.location.href = "register_form.php"
             }
         };
         //alert("user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value);
         xmlhttp.send();
+        document.form.action="register.php";
+        document.form.submit();
     }
 </script>
 <body>
