@@ -32,9 +32,6 @@ include 'db_connection.php';
         var end_trip = document.getElementById("end_trip").options[document.getElementById("end_trip").selectedIndex].text;
         xmlhttp.open("GET", "trip_progress.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip,false);
         //alert("balance_query.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip);
-        xmlhttp.onreadystatechange=function() {
-            alert(this.responseText);
-        };
         xmlhttp.send();
     }
     function endTrip() {
@@ -51,7 +48,7 @@ include 'db_connection.php';
                 <option selected disabled value="">Select a Breezecard</option>
                 <?php
                 $username = $_SESSION['Username'];
-                $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = 'sandrapatel'";
+                $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$username'";
                 $sql = mysqli_query($connection, $query);
                 while ($row = $sql->fetch_assoc()){
                     echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";

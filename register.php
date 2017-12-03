@@ -21,3 +21,17 @@ $_SESSION["Username"] = $username;
 header("Location: passenger_menu.php");
 exit();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="window">
+ <h1>
+    Loading
+ </h1>
+</div>
+</body>
+</html>
