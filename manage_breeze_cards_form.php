@@ -72,11 +72,11 @@
 <p><strong>Add Value to Selected Card</strong></p>
 <p>
     <label>Credit Card #</label>
-    <input type="password" id="password" name="password">
+    <input type="text" id="password" name="password">
 </p>
 <p>
     <label>Value</label>
-    <input type="password" id="password" name="password">
+    <input type="text" id="password" name="password">
 </p>
 <p>
 <button type="button" onclick="alert('Update')">Add Value</button>

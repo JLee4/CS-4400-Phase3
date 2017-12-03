@@ -27,11 +27,12 @@ include 'db_connection.php';
         if (document.getElementById("password").value !== document.getElementById("password_confirm").value) {
             alert("Passwords do not match");
             return;
-        }        if (!document.getElementById("old_breeze_radio").checked && !document.getElementById("new_breeze_radio").checked) {
+        }
+        if (!document.getElementById("old_breeze_radio").checked && !document.getElementById("new_breeze_radio").checked) {
             alert("Please choose a BreezeCard option.");
             return;
         }
-        if (!document.getElementById("old_breeze_radio").checked || !document.getElementById("card_num").value) {
+        if (document.getElementById("old_breeze_radio").checked && !document.getElementById("card_num").value) {
             alert("Please enter an existing BreezeCard");
             return;
         }
