@@ -3,6 +3,12 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        #window{
+            width:20%;
+        }
+    </style>
 </head>
 <script type="text/javascript">
     function loginFunc() {
@@ -15,7 +21,7 @@
     }
 </script>
 <body>
-<p style="font-size: 20px" align="center">CREATE NEW STATION</p>    
+<p style="font-size: 20px" align="center"><strong>CREATE NEW STATION</strong></p>
     
 <div id="window">
     <form name="form" method="POST">
