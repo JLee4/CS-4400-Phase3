@@ -5,7 +5,7 @@ include 'db_connection.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Passenger Menu</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <script type="text/javascript">
@@ -25,11 +25,13 @@ include 'db_connection.php';
         }
         document.getElementById("start_trip_btn").disabled = true;
         document.getElementById("end_trip_btn").disabled = false;
+
         xmlhttp = new XMLHttpRequest();
         var card_number = document.getElementById("card_num").options[document.getElementById("card_num").selectedIndex].text;
         var start_trip = document.getElementById("start_trip").options[document.getElementById("start_trip").selectedIndex].text;
         var end_trip = document.getElementById("end_trip").options[document.getElementById("end_trip").selectedIndex].text;
-        xmlhttp.open("GET", "balance_query.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip,false);
+        xmlhttp.open("GET", "trip_progress.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip,false);
+        //alert("balance_query.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip);
         xmlhttp.onreadystatechange=function() {
             alert(this.responseText);
         };
@@ -56,7 +58,7 @@ include 'db_connection.php';
                 }
                 ?>
             </select>
-            <input type="button" id="manage_cards_btn"  value="Manage Cards" onclick="location.href='trip_history.php'">
+            <input type="button" id="manage_cards_btn"  value="Manage Cards" onclick="location.href='breeze_card_management_form.php'">
         </p>
         <p>
             <label>Balance</label>
@@ -90,7 +92,7 @@ include 'db_connection.php';
             <input type="button" id="end_trip_btn"  value="End Trip" onclick="endTrip()" disabled="true">
         </p>
         <p>
-            <input type="button" id="trip_history_btn"  value="View Trip History" onclick="location.href='trip_history.php'">
+            <input type="button" id="trip_history_btn"  value="View Trip History" onclick="location.href='view_trip_history_form.php'">
             <input type="button" id="logout_btn" value="Log Out" onclick="location.href='login_form.php'">
         </p>
 

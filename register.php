@@ -20,6 +20,4 @@ if (!$user_result || !$passenger_result || !$breezecard_result) {
 $_SESSION["Username"] = $username;
 header("Location: passenger_menu.php");
 exit();
-
-mysqli_close($connection);
 ?>

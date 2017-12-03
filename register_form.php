@@ -5,7 +5,7 @@ include 'db_connection.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <script type="text/javascript">
