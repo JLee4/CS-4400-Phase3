@@ -5,7 +5,7 @@ include 'db_connection.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration</title>
+    <title>Passenger Registration</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <script type="text/javascript">
@@ -56,10 +56,9 @@ include 'db_connection.php';
     }
 </script>
 <body>
+<p style="font-size: 20px" align="center">PASSENGER REGISTRATION</p>
+
 <div id="window">
-    <h1>
-       Registration
-    </h1>
     <form name="form" method="POST">
         <p>
             <label>Username</label>
