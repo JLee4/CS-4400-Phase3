@@ -26,6 +26,19 @@
 </head>
 
 <body>
+
+<p>
+    <label>Start Time</label>
+    <input type="text" id="username" name="username">
+</p>
+<p>
+    <label>End Time</label>
+    <input type="password" id="password" name="password">
+</p>
+
+<button type="button" onclick="alert('Update')">Update</button>
+<button type="button" onclick="alert('Reset')">Reset</button>
+
 <p><strong>Passenger Flow Report</strong></p>
 
 <table id="myTable">
@@ -74,8 +87,6 @@
     </tr>
 </table>
 
-<button type="button" onclick="alert('Update')">Update</button>
-<button type="button" onclick="alert('Reset')">Reset</button>
 
 </body>
 </html>
