@@ -9,7 +9,7 @@ body{
 }
 #window{
     border: solid blue 2px;
-    width: 20%;
+    width: 100%;
     border-radius: 0;
     margin: 100px auto;
     background: white;
