@@ -15,6 +15,8 @@
     }
 </script>
 <body>
+<p style="font-size: 20px" align="center">CREATE NEW STATION</p>    
+    
 <div id="window">
     <form name="form" method="POST">
         <p>

@@ -132,7 +132,7 @@
         <th onclick="sortTable(5)">Nearest Intersection</th>
     </tr>
     <tr onmousemove="highlight()">
-        <td>Asshole</td>
+        <td>A</td>
         <td>N1</td>
         <td>2.00</td>
         <td>Open</td>
@@ -140,7 +140,7 @@
         <td>null</td>
     </tr>
     <tr onmousemove="highlight()">
-        <td>Bitch</td>
+        <td>B</td>
         <td>N2</td>
         <td>2.50</td>
         <td>Closed</td>
@@ -148,7 +148,7 @@
         <td>null</td>
     </tr>
     <tr onmousemove="highlight()">
-        <td>Cunt</td>
+        <td>C</td>
         <td>N3</td>
         <td>2.50</td>
         <td>Open</td>
@@ -156,7 +156,7 @@
         <td>Dick and Dickless</td>
     </tr>
     <tr onmousemove="highlight()">
-        <td>Dick</td>
+        <td>D</td>
         <td>N4</td>
         <td>1.50</td>
         <td>Closed</td>
@@ -164,7 +164,7 @@
         <td>Butt and Butthead</td>
     </tr>
     <tr onmousemove="highlight()">
-        <td>Eggplant</td>
+        <td>E</td>
         <td>N5</td>
         <td>5.00</td>
         <td>Open</td>
