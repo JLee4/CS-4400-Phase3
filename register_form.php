@@ -1,3 +1,7 @@
+<?php
+include 'db_connection.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +13,11 @@
         if (!document.getElementById("username").value || !document.getElementById("password").value
             || !document.getElementById("email").value || !document.getElementById("password_confirm").value) {
             alert("Field(s) are empty!");
+            return;
+        }
+        var regex = /\S+@\S+\.\S+/;
+        if (!regex.test(document.getElementById("email").value)) {
+            alert("Email is invalid");
             return;
         }
         if (document.getElementById("password").value.length < 8) {
@@ -26,6 +35,23 @@
             alert("Please enter an existing BreezeCard");
             return;
         }
+        if (document.getElementById("old_breeze_radio").checked && (/\D/.test(document.getElementById("card_num").value) || document.getElementById("card_num").value.length !== 16)) {
+            alert("Please enter an valid BreezeCard number. It must be a 16 digit number");
+            return;
+        }
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText === true) {
+                    alert("Username or email already taken.")
+                    return;
+                }
+            }
+        };
+        alert("user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value);
+        xmlhttp.open("GET", "user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value,true);
+        xmlhttp.send();
+        alert(xmlhttp.responseText);
         document.form.action="register.php";
         document.form.submit();
     }
