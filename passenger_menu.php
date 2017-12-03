@@ -30,6 +30,9 @@ include 'db_connection.php';
         var start_trip = document.getElementById("start_trip").options[document.getElementById("start_trip").selectedIndex].text;
         var end_trip = document.getElementById("end_trip").options[document.getElementById("end_trip").selectedIndex].text;
         xmlhttp.open("GET", "balance_query.php?card="+ card_number + "&start=" +start_trip + "&end=" + end_trip,false);
+        xmlhttp.onreadystatechange=function() {
+            alert(this.responseText);
+        };
         xmlhttp.send();
     }
     function endTrip() {

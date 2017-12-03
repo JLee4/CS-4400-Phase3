@@ -15,6 +15,7 @@ $fare = $fare_result->fetch_row()[0];
 $time = date("Y-m-d H:i:s");
 $start = $start_result->fetch_row()[0];
 $end_r = $end_result->fetch_row()[0];
+echo $fare + $time + $card + $start + $end_r;
 
 $trip_result = mysqli_query($connection, "INSERT INTO Trip (Tripfare, StartTime, BreezecardNum, StartsAt, EndsAt)"." 
   VALUES ('$fare', '$time', '$card', '$start', '$end_r')") or die("DB error");
