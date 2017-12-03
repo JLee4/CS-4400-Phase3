@@ -8,11 +8,11 @@ body{
     margin-left: 70%;
 }
 #window{
-    border: solid blue 2px;
-    width: 100%;
+    border: solid darkolivegreen 6px;
+    width: 90%;
     border-radius: 0;
-    margin: 100px auto;
-    background: white;
+    margin: 0px auto;
+    background: beige;
     padding: 50px;
 }
 table.tableSection {
