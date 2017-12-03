@@ -40,20 +40,18 @@ include 'db_connection.php';
             return;
         }
         xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                if (this.responseText === true) {
-                    alert("Username or email already taken.")
-                    return;
-                }
+        xmlhttp.open("GET", "user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value,false);
+        xmlhttp.onreadystatechange=function() {
+            if (this.responseText !== '') {
+                //alert(this.responseText);
+                alert("Username or email already taken.")
+            } else {
+                document.form.action="register.php";
+                document.form.submit();
             }
         };
-        alert("user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value);
-        xmlhttp.open("GET", "user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value,true);
+        //alert("user_validation.php?user="+document.getElementById("username").value+"&email="+document.getElementById("email").value);
         xmlhttp.send();
-        alert(xmlhttp.responseText);
-        document.form.action="register.php";
-        document.form.submit();
     }
 </script>
 <body>
