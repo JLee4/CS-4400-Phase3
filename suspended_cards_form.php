@@ -36,31 +36,31 @@
         <th onclick="sortTable(3)">Previous Owner</th>
     </tr>
     <tr>
-        <td>Asshole</td>
+        <td>A</td>
         <td>N1</td>
         <td>2.00</td>
         <td>Open</td>
     </tr>
     <tr>
-        <td>Bitch</td>
+        <td>B</td>
         <td>N2</td>
         <td>2.50</td>
         <td>Closed</td>
     </tr>
     <tr>
-        <td>Cunt</td>
+        <td>C</td>
         <td>N3</td>
         <td>2.50</td>
         <td>Open</td>
     </tr>
     <tr>
-        <td>Dick</td>
+        <td>D</td>
         <td>N4</td>
         <td>1.50</td>
         <td>Closed</td>
     </tr>
     <tr>
-        <td>Eggplant</td>
+        <td>E</td>
         <td>N5</td>
         <td>5.00</td>
         <td>Open</td>
