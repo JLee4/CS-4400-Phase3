@@ -7,6 +7,12 @@ include 'db_connection.php';
 <head>
     <title>Passenger Registration</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        #window {
+            width:20%;
+        }
+    </style>
 </head>
 <script type="text/javascript">
     function registerFunc() {
@@ -83,6 +89,7 @@ include 'db_connection.php';
                 <label>Existing BreezeCard Number</label>
                 <input type="text" id="card_num" name="card_num">
             </p>
+            <br>
             <input type="radio" name="breeze_radio" id="new_breeze_radio" value="new"> Get a new BreezeCard<br>
         </div>
         <p>
