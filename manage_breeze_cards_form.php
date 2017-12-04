@@ -1,3 +1,9 @@
+<?php
+include 'db_connection.php';
+$_SESSION['Username'] = 'sandrapatel';
+$user = $_SESSION['Username'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,28 +32,33 @@
 </head>
 <script type="text/javascript">
     function add_card() {
-        xmlhttp = new XMLHttpRequest();
+        if (/\D/.test(document.getElementById("card_num").value) || document.getElementById("card_num").value.length !== 16) {
+            alert("Please enter an valid BreezeCard number. It must be a 16 digit number");
+            return;
+        }
+        var xmlhttp = new XMLHttpRequest();
         var card_number = document.getElementById("card_num").value;
-        xmlhttp.open("GET", "manage_breeze_cards.php?card="+card_number+"&user="+<?php echo $_SESSION['Username']?>,false);
+        var user = "<?php echo $user; ?>";
+        xmlhttp.open("GET", "manage_breeze_cards.php?card="+card_number+"&user="+user,false);
         xmlhttp.send();
         location.reload();
     }
-    function remove_card(var card_num) {
-        alert("fjdsoif");
-        xmlhttp = new XMLHttpRequest();
-        var card_number = document.getElementById(card_num).value;
-        alert(card_number);
-        xmlhttp.open("GET", "manage_breeze_cards.php?remove="+card_number+"&user="+<?php echo $_SESSION['Username']?>,false);
-        xmlhttp.onreadystatechange=function() {
-            alert(this.responseText);
-        };
+    function remove_cardFunc() {
+        var xmlhttp = new XMLHttpRequest();
+        var card_number = document.getElementById("remove_card_num").options[document.getElementById("remove_card_num").selectedIndex].text;
+        xmlhttp.open("GET", "manage_breeze_cards.php?remove="+card_number,false);
         xmlhttp.send();
         location.reload();
     }
     function add_value() {
-        xmlhttp = new XMLHttpRequest();
+        if ((/\D/.test(document.getElementById("credit").value)) || document.getElementById("credit").value.length !== 16) {
+            alert("Please enter an valid credit card number. It must be a 16 digit number");
+            return;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        var card_number = document.getElementById("add_card_val").options[document.getElementById("add_card_val").selectedIndex].text;
         var value = document.getElementById("value").value;
-        xmlhttp.open("GET", "manage_breeze_cards.php?value="+value+"&val_card="+card_number+"&user="+<?php echo $_SESSION['Username']?>,false);
+        xmlhttp.open("GET", "manage_breeze_cards.php?value="+value+"&val_card="+card_number,false);
         xmlhttp.send();
         location.reload()
     }
@@ -118,16 +129,27 @@
         <th onclick="sortTable(1)">Value</th>
     </tr>
     <?php
-    include 'db_connection.php';
-    $user = 'sandrapatel';
     $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
     $sql = mysqli_query($connection, $query);
-    while ($row = $sql->fetch_assoc()){
-        echo "<tr><td>". $row['BreezecardNum'] ."</td><td>". $row['Value']."</td><td><input type='button' onclick='remove_card(".$row['BreezecardNum'].")' value='Remove'></td></tr>";
+    while ($row = $sql->fetch_assoc()) {
+        $card_var = $row['BreezecardNum'];
+        echo "<tr><td>" . $card_var . "</td><td>" . $row['Value'] . "</td></tr>";
     }
     ?>
 </table>
-
+<p>
+    <select id="remove_card_num">
+        <option selected disabled value="">Select a Breezecard</option>
+        <?php
+        $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
+        $sql = mysqli_query($connection, $query);
+        while ($row = $sql->fetch_assoc()){
+            echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
+        }
+        ?>
+    </select>
+    <input type="button" id="remove_card_btn"  value="Remove Card" onclick="remove_cardFunc()">
+</p>
 <p>
     <input type="text" id="card_num" name="card_num">
     <button type="button" onclick="add_card()">Add Card</button>
@@ -135,6 +157,16 @@
 
 <p><strong>Add Value to Selected Card</strong></p>
 <p>
+    <select id="add_card_val">
+        <option selected disabled value="">Select a Breezecard</option>
+        <?php
+        $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
+        $sql = mysqli_query($connection, $query);
+        while ($row = $sql->fetch_assoc()){
+            echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
+        }
+        ?>
+    </select>
     <label>Credit Card #</label>
     <input type="text" id="credit" name="credit">
 </p>
