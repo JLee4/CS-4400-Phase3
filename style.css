@@ -1,5 +1,5 @@
 body{
-    background: #ffffff;
+    background: #f5f3ce;
 }
 #button{
     color: #ffffff;
@@ -12,7 +12,7 @@ body{
     width: 90%;
     border-radius: 0;
     margin: 0px auto;
-    background: beige;
+    background: #f5ec99;
     padding: 50px;
 }
 table.tableSection {
@@ -35,3 +35,4 @@ table.tableSection tr {
 table, th, td {
     border: 1px solid gray;
 }
+
