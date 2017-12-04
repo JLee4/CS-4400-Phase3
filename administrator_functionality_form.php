@@ -5,6 +5,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
+        #window {
+            width:20%;
+        }
+
         table {
             border-spacing: 0;
             width: 50%;
@@ -41,23 +45,23 @@
 
 <div id="window">
     <div align="center">
-        <button type="button" onclick="alert('Update')">Station Management</button>
+        <button type="button" onclick="location.href='station_management_form.php'">Station Management</button>
     </div>
     <p></p>
     <div align="center">
-        <button type="button" onclick="alert('Reset')">Suspended Cards</button>
+        <button type="button" onclick="location.href='suspended_cards_form.php'">Suspended Cards</button>
     </div>
     <p></p>
     <div align="center">
-        <button type="button" onclick="alert('Update')">Breeze Card Management</button>
+        <button type="button" onclick="location.href='breeze_card_management_form.php'">Breeze Card Management</button>
     </div>
     <p></p>
     <div align="center">
-        <button type="button" onclick="alert('Reset')">Passenger Flow Report</button>
+        <button type="button" onclick="location.href='passenger_flow_report_form.php'">Passenger Flow Report</button>
     </div>
     <p style="font-size: 50px"></p>
     <div align="center">
-        <button type="button" onclick="alert('Update')">Log Out</button>
+        <button type="button" onclick="location.href='login_form.php'">Log Out</button>
     </div>
 </div>
 
