@@ -1,17 +1,23 @@
 <?php
 include 'db_connection.php';
-$user = $_SESSION['Username'];
+#$user = $_SESSION['Username'];
+$user = "sandrapatel";
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Manage Cards</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
+        #window {
+            width:50%;
+        }
+
         table {
             border-spacing: 0;
-            width: 50%;
+            width: 100%;
             border: 1px solid #ddd;
         }
 
@@ -117,65 +123,67 @@ $user = $_SESSION['Username'];
     }
 </script>
 <body>
+<p style="font-size: 20px" align="center">MANAGE BREEZE CARDS</p>
 
+<div id="window">
+    <p><strong>BREEZE CARDS</strong></p>
 
-<p><strong>Breeze Cards</strong></p>
-
-<table id="myTable">
-    <tr>
-        <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
-        <th onclick="sortTable(0)">Card Number</th>
-        <th onclick="sortTable(1)">Value</th>
-    </tr>
-    <?php
-    $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
-    $sql = mysqli_query($connection, $query);
-    while ($row = $sql->fetch_assoc()) {
-        $card_var = $row['BreezecardNum'];
-        echo "<tr><td>" . $card_var . "</td><td>" . $row['Value'] . "</td></tr>";
-    }
-    ?>
-</table>
-<p>
-    <select id="remove_card_num">
-        <option selected disabled value="">Select a Breezecard</option>
+    <table id="dataTable">
+        <tr bgcolor="808080">
+            <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
+            <th onclick="sortTable(0)">Card Number</th>
+            <th onclick="sortTable(1)">Value</th>
+        </tr>
         <?php
         $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
         $sql = mysqli_query($connection, $query);
-        while ($row = $sql->fetch_assoc()){
-            echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
+        while ($row = $sql->fetch_assoc()) {
+            $card_var = $row['BreezecardNum'];
+            echo "<tr><td>" . $card_var . "</td><td>" . $row['Value'] . "</td></tr>";
         }
         ?>
-    </select>
-    <input type="button" id="remove_card_btn"  value="Remove Card" onclick="remove_cardFunc()">
-</p>
-<p>
-    <input type="text" id="card_num" name="card_num">
-    <button type="button" onclick="add_card()">Add Card</button>
-</p>
+    </table>
+    <p>
+        <select id="remove_card_num">
+            <option selected disabled value="">Select a Breezecard</option>
+            <?php
+            $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
+            $sql = mysqli_query($connection, $query);
+            while ($row = $sql->fetch_assoc()){
+                echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
+            }
+            ?>
+        </select>
+        <input type="button" id="remove_card_btn"  value="Remove Card" onclick="remove_cardFunc()">
+    </p>
+    <p>
+        <input type="text" id="card_num" name="card_num">
+        <button type="button" onclick="add_card()">Add Card</button>
+    </p>
 
-<p><strong>Add Value to Selected Card</strong></p>
-<p>
-    <select id="add_card_val">
-        <option selected disabled value="">Select a Breezecard</option>
-        <?php
-        $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
-        $sql = mysqli_query($connection, $query);
-        while ($row = $sql->fetch_assoc()){
-            echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
-        }
-        ?>
-    </select>
-    <label>Credit Card #</label>
-    <input type="text" id="credit" name="credit">
-</p>
-<p>
-    <label>Value</label>
-    <input type="text" id="value" name="value">
-</p>
-<p>
-<button type="button" onclick="add_value()">Add Value</button>
-</p>
+    <p><strong>Add Value to Selected Card</strong></p>
+    <p>
+        <select id="add_card_val">
+            <option selected disabled value="">Select a Breezecard</option>
+            <?php
+            $query = "SELECT BreezecardNum, Value FROM Breezecard WHERE BelongsTo = '$user'";
+            $sql = mysqli_query($connection, $query);
+            while ($row = $sql->fetch_assoc()){
+                echo "<option value=\"owner1\">" . $row['BreezecardNum'] . "</option>";
+            }
+            ?>
+        </select>
+        <label>Credit Card #</label>
+        <input type="text" id="credit" name="credit">
+    </p>
+    <p>
+        <label>Value</label>
+        <input type="text" id="value" name="value">
+    </p>
+    <p>
+    <button type="button" onclick="add_value()">Add Value</button>
+    </p>
+</div>
 
 </body>
 </html>
