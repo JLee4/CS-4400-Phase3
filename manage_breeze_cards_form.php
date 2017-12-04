@@ -1,6 +1,5 @@
 <?php
 include 'db_connection.php';
-$_SESSION['Username'] = 'sandrapatel';
 $user = $_SESSION['Username'];
 ?>
 
